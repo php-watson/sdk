@@ -21,7 +21,7 @@ class RetrieveAndRankService extends Service
     protected $options = [];
 
     /**
-     * Get the Solr Clusters
+     * List the Solr Clusters
      *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
