@@ -1,0 +1,39 @@
+{
+    "name": "php-watson/client-sdk",
+    "description": "A PHP SDK for the IBM Watson services",
+    "keywords": ["PHP","SDK","IBM","Watson","Client","REST","Integration"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mauri de Souza Nunes",
+            "email": "mauri870@gmail.com"
+        },
+        {
+            "name": "Juliana Fernandes",
+            "email": "littlejuh@live.it"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpWatson\\Sdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpWatson\\Sdk\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
