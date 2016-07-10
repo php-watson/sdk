@@ -3,7 +3,7 @@
 namespace PhpWatson\Sdk\Tests\Language\RetrieveAndRank\V1;
 
 use PhpWatson\Sdk\Tests\AbstractTestCase;
-use PhpWatson\Sdk\Language\ToneAnalyser\ToneAnalyserService;
+use PhpWatson\Sdk\Language\ToneAnalyser\V3\ToneAnalyserService;
 
 class ToneAnalyserV3Test extends AbstractTestCase
 {
