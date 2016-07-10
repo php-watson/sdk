@@ -1,4 +1,5 @@
 # A PHP SDK for the IBM Watson Services
+[![Build Status](https://travis-ci.org/php-watson/client-sdk.svg?branch=master)](https://travis-ci.org/php-watson/client-sdk)
 
 ![](https://s31.postimg.org/5ou53l3yz/watson_backgroud.png)
 
