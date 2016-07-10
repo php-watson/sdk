@@ -1,5 +1,5 @@
 {
-    "name": "php-watson/client-sdk",
+    "name": "php-watson/sdk",
     "description": "A PHP SDK for the IBM Watson services",
     "keywords": ["PHP","SDK","IBM","Watson","Client","REST","Integration"],
     "type": "library",
