@@ -38,6 +38,6 @@ class RetrieveAndRankV1Test extends AbstractTestCase
     {
         $response = $this->service->listSolrClusters();
 
-        $this->assertArrayHasKey('clusters', json_decode($response->getBody()->getContents(), true));
+        $this->assertArrayHasKey('clusters', json_decode($response->getContent(), true));
     }
 }
