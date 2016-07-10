@@ -20,14 +20,14 @@ class ClientTest extends AbstractTestCase
     public function test_client_request()
     {
         $mock = new MockHandler([
-            new Response(200, ['X-Foo' => 'Bar'], 'FooBar'),
+            new Response(200, ['X-Foo' => 'Bar'], 'FooBar')
         ]);
-        $this->client->setGuzzleInstance(new \GuzzleHttp\Client(['handler' => HandlerStack::create($mock) ]));
+        $this->client->setGuzzleInstance(new \GuzzleHttp\Client(['handler' => HandlerStack::create($mock), 'exceptions' => false ]));
         
         $response = $this->client->request('GET', '/');
 
         $this->assertEquals(['X-Foo' => [0 => 'Bar']], $response->getHeaders());
-        $this->assertEquals('FooBar', $response->getBody()->getContents());
+        $this->assertEquals('FooBar', $response->getContent());
         $this->assertEquals(200, $response->getStatusCode());
     }
 }
