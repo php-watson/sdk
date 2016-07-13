@@ -13,4 +13,10 @@
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
+    <!-- Commented for TravisCI
+    <php>
+        <env name="TONE_ANALYSER_API_USERNAME" value=""/>
+        <env name="TONE_ANALYSER_API_PASSWORD" value=""/>
+    </php>
+    -->
 </phpunit>
