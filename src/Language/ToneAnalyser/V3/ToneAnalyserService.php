@@ -6,19 +6,29 @@ use PhpWatson\Sdk\Service;
 class ToneAnalyserService extends Service
 {
     /**
-     * {@inheritdoc}
+     * Base url for the service
+     *
+     * @var string
      */
-    protected $url = "https://watson-api-explorer.mybluemix.net/tone-analyzer/api";
+    protected $url = "https://gateway.watsonplatform.net/tone-analyzer/api";
 
     /**
-     * {@inheritdoc}
+     * API service version
+     *
+     * @var string
      */
     protected $version = 'v3';
 
     /**
-     * {@inheritdoc}
+     * ToneAnalyserService constructor
+     *
+     * @param $username string The service api username
+     * @param $password string The service api password
      */
-    protected $options = [];
+    public function __construct($username, $password)
+    {
+        parent::__construct($username, $password);
+    }
 
     /**
      * Analyzes the tone of a piece of text
