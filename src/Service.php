@@ -8,21 +8,31 @@ class Service implements ServiceInterface
 {
     /**
      * Base url for the service
+     * 
      * @var string
      */
     protected $url;
 
     /**
      * API version
+     * 
      * @var string
      */
     protected $version;
 
     /**
-     * Default request Options
-     * @var array
+     * Api service username
+     *
+     * @var string
      */
-    protected $options = [];
+    protected $username;
+
+    /**
+     * Api service password
+     *
+     * @var string
+     */
+    protected $password;
 
     /**
      * Sdk client
@@ -30,9 +40,18 @@ class Service implements ServiceInterface
      */
     protected $client;
 
-    public function __construct()
+    /**
+     * The base service constructor
+     *
+     * @param $username string The service api username
+     * @param $password string The service api password
+     */
+    public function __construct($username, $password)
     {
-        $this->client = new Client();
+        $this->setUsername($username);
+        $this->setPassword($password);
+
+        $this->client = new Client($this->getUsername(), $this->getPassword());
     }
 
     /**
@@ -98,5 +117,37 @@ class Service implements ServiceInterface
      */
     protected function normalizeUrlEndBar($string) {
         return (substr($string, -1) != '/') ? $string.'/': $string;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }
