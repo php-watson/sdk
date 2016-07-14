@@ -44,6 +44,8 @@ class ResponseTest extends AbstractTestCase
 
         $this->assertEquals('{"foo": "bar"}', $this->response->getContent());
         $this->assertEquals(['foo' => 'bar'], json_decode($this->response->getContent(), true));
+        $this->assertTrue($this->response->isSuccess());
+        $this->assertFalse($this->response->isError());
     }
 
     public function test_can_parse_an_error_response()
@@ -59,5 +61,6 @@ class ResponseTest extends AbstractTestCase
         $this->assertEquals(400, $this->response->getStatusCode());
         $this->assertArraySubset(['code' => 400], json_decode($this->response->getContent(), true));
         $this->assertTrue($this->response->isError());
+        $this->assertFalse($this->response->isSuccess());
     }
 }

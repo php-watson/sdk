@@ -21,6 +21,13 @@ interface ResponseInterface
      */
     public function isError();
 
+    /**
+     * Return true if the request is successfully completed
+     *
+     * @return bool
+     */
+    public function isSuccess();
+
     public function getContent();
 
     public function setContent($content);

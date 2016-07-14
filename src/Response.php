@@ -51,6 +51,14 @@ class Response implements ResponseInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isSuccess()
+    {
+        return ($this->getStatusCode() === 200 && $this->isError() == false) ? true : false;
+    }
+
+    /**
      * @return array
      */
     public function getHeaders()
