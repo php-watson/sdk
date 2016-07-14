@@ -3,6 +3,7 @@
 namespace PhpWatson\Sdk;
 
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Exception\ClientException;
 use PhpWatson\Sdk\Interfaces\ClientInterface;
 
 class Client implements ClientInterface
@@ -26,10 +27,17 @@ class Client implements ClientInterface
      */
     private $guzzle;
 
+
+    /**
+     * @var Response
+     */
+    private $response;
+
     public function __construct($username, $password)
     {
         $this->setOptions(['auth' => [$username, $password]]);
         $this->setGuzzleInstance(new GuzzleClient());
+        $this->response = new Response();
     }
 
     /**
@@ -37,7 +45,7 @@ class Client implements ClientInterface
      */
     public function request($method, $uri, $options = [])
     {
-        return $this->guzzle->request($method, $uri, array_merge($this->getOptions(), $options));
+        return $this->response->parse($this->guzzle->request($method, $uri, array_merge($this->getOptions(), $options)));
     }
 
     /**

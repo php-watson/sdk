@@ -38,6 +38,6 @@ class ToneAnalyserV3Test extends AbstractTestCase
     {
         $response = $this->service->plainText('Example text to analyse, duuh!');
 
-        $this->assertArrayHasKey('document_tone', json_decode($response->getBody()->getContents(), true));
+        $this->assertArrayHasKey('document_tone', json_decode($response->getContent(), true));
     }
 }
