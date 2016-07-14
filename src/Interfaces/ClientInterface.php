@@ -18,9 +18,26 @@ interface ClientInterface
 
     /**
      * Set the current Guzzle instance
+     * 
      * @param GuzzleClient $guzzle
      * @return
      * @internal param GuzzleClient $client
      */
     public function setGuzzleInstance(GuzzleClient $guzzle);
+
+    /**
+     * Get the client options
+     *
+     * @return array
+     */
+    public function getOptions();
+
+
+    /**
+     *  Set the client options merging and/or overwriting its contents
+     *
+     * @param array $options
+     * @return null
+     */
+    public function setOptions(array $options);
 }

@@ -13,7 +13,13 @@ class ServiceTest extends AbstractTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->service = new Service();
+        $this->service = new Service('user', 'pass');
+    }
+
+    public function test_constructor_properties_and_credentials_get_set()
+    {
+        $this->assertEquals('user', $this->service->getUsername());
+        $this->assertEquals('pass', $this->service->getPassword());
     }
 
     public function test_get_set_url()

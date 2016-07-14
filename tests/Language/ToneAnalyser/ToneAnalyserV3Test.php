@@ -15,13 +15,13 @@ class ToneAnalyserV3Test extends AbstractTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->service = new ToneAnalyserService();
+        $this->service = new ToneAnalyserService(getenv('TONE_ANALYSER_V3_API_USERNAME'), getenv('TONE_ANALYSER_V3_API_PASSWORD'));
     }
 
     public function test_if_url_is_set()
     {
         $this->assertEquals(
-            'https://watson-api-explorer.mybluemix.net/tone-analyzer/api',
+            'https://gateway.watsonplatform.net/tone-analyzer/api',
             $this->service->getUrl()
         );
     }

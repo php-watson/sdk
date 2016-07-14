@@ -14,7 +14,7 @@ class ClientTest extends AbstractTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->client = new Client();
+        $this->client = new Client('user', 'pass');
     }
 
     public function test_client_request()
@@ -29,5 +29,13 @@ class ClientTest extends AbstractTestCase
         $this->assertEquals(['X-Foo' => [0 => 'Bar']], $response->getHeaders());
         $this->assertEquals('FooBar', $response->getBody()->getContents());
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function test_default_options()
+    {
+        $this->assertEquals(
+            ['exceptions' => false, 'auth' => ['user', 'pass'], 'headers' => ['Accept' => 'application/json']],
+            $this->client->getOptions()
+        );
     }
 }
