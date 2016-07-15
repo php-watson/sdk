@@ -40,4 +40,19 @@ interface ClientInterface
      * @return null
      */
     public function setOptions(array $options);
+
+    /**
+     *  Set the response instance
+     *
+     * @param ResponseInterface $response
+     * @return null
+     */
+    public function setResponse(ResponseInterface $response);
+
+    /**
+     *  Get the response instance
+     *
+     * @return ResponseInterface
+     */
+    public function getResponse();
 }
