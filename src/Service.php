@@ -46,7 +46,7 @@ class Service implements ServiceInterface
      * @param $username string The service api username
      * @param $password string The service api password
      */
-    public function __construct($username, $password)
+    public function __construct($username = null, $password = null)
     {
         $this->setUsername($username);
         $this->setPassword($password);

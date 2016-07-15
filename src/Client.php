@@ -35,7 +35,9 @@ class Client implements ClientInterface
 
     public function __construct($username, $password)
     {
-        $this->setOptions(['auth' => [$username, $password]]);
+        if ($username != null && $password != null)
+            $this->setOptions(['auth' => [$username, $password]]);
+
         $this->setGuzzleInstance(new GuzzleClient());
         $this->response = new Response();
     }
