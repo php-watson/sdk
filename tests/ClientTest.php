@@ -6,9 +6,13 @@ use PhpWatson\Sdk\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
+use PhpWatson\Sdk\Interfaces\ResponseInterface;
 
 class ClientTest extends AbstractTestCase
 {
+    /**
+     * @var Client
+     */
     public $client;
 
     public function setUp()
@@ -36,6 +40,14 @@ class ClientTest extends AbstractTestCase
         $this->assertEquals(
             ['exceptions' => false, 'auth' => ['user', 'pass'], 'headers' => ['Accept' => 'application/json']],
             $this->client->getOptions()
+        );
+    }
+
+    public function test_if_response_is_instantiated()
+    {
+        $this->assertInstanceOf(
+            ResponseInterface::class,
+            $this->client->getResponse()
         );
     }
 }
