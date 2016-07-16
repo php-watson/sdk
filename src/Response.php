@@ -3,6 +3,7 @@
 namespace PhpWatson\Sdk;
 
 use PhpWatson\Sdk\Interfaces\ResponseInterface;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
 
 class Response implements ResponseInterface
 {
@@ -36,9 +37,11 @@ class Response implements ResponseInterface
     {
         $this->setHeaders($response->getHeaders());
         $this->setStatusCode($response->getStatusCode());
-        $this->setContent($response->getBody()->getContents());
-        if ($this->getStatusCode() != 200)
+        if ($this->getStatusCode() != 200) {
             $this->setIsError(true);
+        }
+        $this->setContent($response->getBody()->getContents());
+
         return $this;
     }
 
