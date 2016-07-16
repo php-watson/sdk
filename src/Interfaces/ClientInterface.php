@@ -3,6 +3,7 @@
 namespace PhpWatson\Sdk\Interfaces;
 
 use GuzzleHttp\Client as GuzzleClient;
+use PhpWatson\Sdk\Response;
 
 interface ClientInterface
 {
@@ -12,7 +13,7 @@ interface ClientInterface
      * @param $method
      * @param $uri
      * @param $options
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return Response
      */
     public function request($method, $uri, $options = []);
 
