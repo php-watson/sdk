@@ -25,7 +25,7 @@ class ToneAnalyserService extends Service
      * @param $username string The service api username
      * @param $password string The service api password
      */
-    public function __construct($username, $password)
+    public function __construct($username = null, $password = null)
     {
         parent::__construct($username, $password);
     }
