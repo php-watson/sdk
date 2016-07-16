@@ -1,6 +1,7 @@
 <?php
 namespace PhpWatson\Sdk\Language\ToneAnalyser\V3;
 
+use PhpWatson\Sdk\Response;
 use PhpWatson\Sdk\Service;
 
 class ToneAnalyserService extends Service
@@ -33,10 +34,14 @@ class ToneAnalyserService extends Service
     /**
      * Analyzes the tone of a piece of text
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return Response
      */
     public function plainText($textToAnalyse, $version='2016-05-19')
     {
-        return $this->client->request('GET', $this->getMountedUrl().'/tone', ['query' => ['version' => $version, 'text' => $textToAnalyse]]);
+        return $this->client->request(
+            'GET',
+            $this->getMountedUrl().'/tone',
+            ['query' => ['version' => $version, 'text' => $textToAnalyse]]
+        );
     }
 }
